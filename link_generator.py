@@ -23,7 +23,6 @@ class Dreamsub:
 
     split_pattern = "https://dreamsub.stream/anime/"
     cdn_uri = "https://cdn1.dreamsub.stream/fl/"
-    # https://cdn1.dreamsub.stream/fl/kaguya-sama-wa-kokurasetai-tensai-tachi-no-renai-zunousen/01/SUB_ITA/720p
 
     def __init__(self, link, episode_number, quality):
         """Class init."""
@@ -42,7 +41,6 @@ class Dreamsub:
                 ep_number=f"0{episode}" if episode < 10 else episode, #noqa
                 quality=self.quality
             )
-            # print(full_name)
             yield full_name
 
     def list_links(self):

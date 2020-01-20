@@ -38,7 +38,8 @@ class Dreamsub:
             full_name = "{cdn}{name}/{ep_number}/SUB_ITA/{quality}p".format(
                 cdn=self.cdn_uri,
                 name=anime_name,
-                ep_number=f"0{episode}" if episode < 10 else episode, #noqa
+                # ep_number=f"0{episode}" if episode < 10 else episode, #noqa
+                ep_number=f'{episode:03d}' if self.ep_number > 99 else f'{episode:02d}', #noqa
                 quality=self.quality
             )
             yield full_name

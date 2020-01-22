@@ -22,7 +22,7 @@ class Dreamsub:
     """Class definition."""
 
     split_pattern = "https://dreamsub.stream/anime/"
-    cdn_uri = "https://cdn1.dreamsub.stream/fl/"
+    cdn_uri = "https://cdn.dreamsub.stream/fl/"
 
     def __init__(self, link, episode_number, quality):
         """Class init."""

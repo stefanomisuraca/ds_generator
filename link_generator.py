@@ -21,8 +21,8 @@ import sys
 class Dreamsub:
     """Class definition."""
 
-    split_pattern = "https://dreamsub.stream/anime/"
-    cdn_uri = "https://cdn.dreamsub.stream/fl/"
+    SPLIT_PATTERN = "https://dreamsub.stream/anime/"
+    CDN_URI = "https://cdn.dreamsub.stream/fl/"
 
     def __init__(self, link, episode_number, quality):
         """Class init."""
@@ -32,11 +32,10 @@ class Dreamsub:
 
     def link_generator(self):
         """Generate links for given series link."""
-        anime_name = self.link.split(self.split_pattern)[1]  # take last part of the uri (the slug) #noqa
-        print(anime_name)
+        anime_name = self.link.split(self.SPLIT_PATTERN)[1]  # take last part of the uri (the slug) #noqa
         for episode in range(1, self.ep_number + 1):
             full_name = "{cdn}{name}/{ep_number}/SUB_ITA/{quality}p".format(
-                cdn=self.cdn_uri,
+                cdn=self.CDN_URI,
                 name=anime_name,
                 ep_number=f'{episode:03d}' if self.ep_number > 99 else f'{episode:02d}', #noqa
                 quality=self.quality
@@ -45,7 +44,7 @@ class Dreamsub:
 
     def list_links(self):
         """Returns a list of downloadable links for given series."""
-        return list(self.link_generator())
+        return self.link_generator()
 
 
 parser = argparse.ArgumentParser(description='Dreamsub links generator.')
